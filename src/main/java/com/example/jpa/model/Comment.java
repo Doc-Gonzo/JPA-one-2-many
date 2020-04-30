@@ -23,5 +23,27 @@ public class Comment extends AuditModel {
     @JsonIgnore
     private Post post;
 
-    // Getters and Setters (Omitted for brevity)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
 }

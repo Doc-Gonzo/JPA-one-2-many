@@ -1,7 +1,8 @@
-ackage com.example.jpa.controller;
+package com.example.jpa.controller;
 
 import com.example.jpa.exception.ResourceNotFoundException;
 import com.example.jpa.model.Comment;
+import com.example.jpa.model.Post;
 import com.example.jpa.repository.CommentRepository;
 import com.example.jpa.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;

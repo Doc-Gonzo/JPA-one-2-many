@@ -1,5 +1,9 @@
 package com.example.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -24,7 +28,14 @@ public class Post extends AuditModel {
     @Lob
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "poster_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Poster poster;
+
     // Getters and Setters (Omitted for brevity)
+
 
     public Long getId() {
         return id;
@@ -56,5 +67,13 @@ public class Post extends AuditModel {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Poster getPoster() {
+        return poster;
+    }
+
+    public void setPoster(Poster poster) {
+        this.poster = poster;
     }
 }
